@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('angular-timezone-select', [])
   .constant('_', _)
   .constant('moment', moment)
@@ -26,6 +28,7 @@ angular.module('angular-timezone-select', [])
       },
       link: function(scope, elem, attrs) {
         var $select2;
+        var placeholder = attrs.placeholder || 'Select a timezone';
         function transformTimezone(zone) {
           return {
             id: zone.name,
@@ -71,7 +74,7 @@ angular.module('angular-timezone-select', [])
           });
 
           $select2 = elem.select2({
-            placeholder: 'Select a timezone',
+            placeholder: placeholder,
             allowClear: true,
             width: 'resolve',
             data: data,
